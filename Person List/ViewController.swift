@@ -34,6 +34,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.tableView.endUpdates()
     }
 
+    @IBAction func editPeople() {
+        self.tableView.setEditing(!self.tableView.editing, animated: true)
+    }
+
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return people.count
     }
@@ -52,6 +56,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = person.jobTitle
         return cell
+    }
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let person = self.people[indexPath.row]
+
+        var controller = UIViewController()
+        controller.navigationItem.title = person.name
+        controller.view.backgroundColor = UIColor.whiteColor()
+
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        var row = indexPath.row
+
+        self.tableView.beginUpdates()
+
+        self.people.removeAtIndex(row)
+        self.tableView.deleteRowsAtIndexPaths([ indexPath ], withRowAnimation: UITableViewRowAnimation.Fade)
+
+        self.tableView.endUpdates()
     }
 
 }
