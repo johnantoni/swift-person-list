@@ -13,9 +13,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var people = Array<Person>()
 
     override func viewDidLoad() {
-        people.append(Person(name: "Alice"))
-        people.append(Person(name: "Bob"))
-        people.append(Person(name: "Charlie"))
+        people.append(Person(name: "Alice", job: "Superintendent"))
+        people.append(Person(name: "Bob", job: "Graphic Designer"))
+        people.append(Person(name: "Charlie", job: "Attendant"))
+        people.append(Person(name: "Alice", job: "Superintendent"))
+        people.append(Person(name: "Bob", job: "Graphic Designer"))
+        people.append(Person(name: "Charlie", job: "Attendant"))
+        people.append(Person(name: "Alice", job: "Superintendent"))
+        people.append(Person(name: "Bob", job: "Graphic Designer"))
+        people.append(Person(name: "Charlie", job: "Attendant"))
+        people.append(Person(name: "Alice", job: "Superintendent"))
+        people.append(Person(name: "Bob", job: "Graphic Designer"))
+        people.append(Person(name: "Charlie", job: "Attendant"))
+        people.append(Person(name: "Alice", job: "Superintendent"))
+        people.append(Person(name: "Bob", job: "Graphic Designer"))
+        people.append(Person(name: "Charlie", job: "Attendant"))
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -27,8 +39,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let person = people[indexPath.row]
 
         // Step 2: Create and configure the row for the Person
-        var cell = UITableViewCell()
+        var optCell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as UITableViewCell?
+        if optCell == nil {
+            optCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "PersonCell")
+        }
+        let cell = optCell!
         cell.textLabel?.text = person.name
+        cell.detailTextLabel?.text = person.jobTitle
         return cell
     }
 

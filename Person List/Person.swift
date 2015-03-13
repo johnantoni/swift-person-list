@@ -13,7 +13,8 @@ class Person {
     var jobTitle: String?
     var address: String?
 
-    init(name: String) {
+    init(name: String, job: String?) {
         self.name = name
+        self.jobTitle = job
     }
 }
