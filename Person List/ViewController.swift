@@ -11,23 +11,27 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var people = Array<Person>()
+    @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
         people.append(Person(name: "Alice", job: "Superintendent"))
         people.append(Person(name: "Bob", job: "Graphic Designer"))
         people.append(Person(name: "Charlie", job: "Attendant"))
-        people.append(Person(name: "Alice", job: "Superintendent"))
-        people.append(Person(name: "Bob", job: "Graphic Designer"))
-        people.append(Person(name: "Charlie", job: "Attendant"))
-        people.append(Person(name: "Alice", job: "Superintendent"))
-        people.append(Person(name: "Bob", job: "Graphic Designer"))
-        people.append(Person(name: "Charlie", job: "Attendant"))
-        people.append(Person(name: "Alice", job: "Superintendent"))
-        people.append(Person(name: "Bob", job: "Graphic Designer"))
-        people.append(Person(name: "Charlie", job: "Attendant"))
-        people.append(Person(name: "Alice", job: "Superintendent"))
-        people.append(Person(name: "Bob", job: "Graphic Designer"))
-        people.append(Person(name: "Charlie", job: "Attendant"))
+    }
+
+    @IBAction func addPerson() {
+        self.tableView.beginUpdates()
+
+        // Change what we (ViewController) know
+        people.append(Person(name: "New Person", job: nil))
+
+        // Tell the table view about the change
+        var row = people.count - 1
+        var indexPath = NSIndexPath(forRow: row, inSection: 0)
+        var indexPaths = [ indexPath ]
+        self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: UITableViewRowAnimation.Left)
+
+        self.tableView.endUpdates()
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,6 +47,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if optCell == nil {
             optCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "PersonCell")
         }
+
         let cell = optCell!
         cell.textLabel?.text = person.name
         cell.detailTextLabel?.text = person.jobTitle
