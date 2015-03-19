@@ -38,6 +38,12 @@ class PersonTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+        if (selected) {
+            self.textLabel?.textColor = UIColor.blueColor()
+        }
+        else {
+            self.textLabel?.textColor = UIColor.blackColor()
+        }
     }
 
     override func layoutSubviews() {
