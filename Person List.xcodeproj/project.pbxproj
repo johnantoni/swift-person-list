@@ -15,6 +15,7 @@
 		EA73C1E91AB2698900FCD5B4 /* Person_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73C1E81AB2698900FCD5B4 /* Person_ListTests.swift */; };
 		EA73C1F31AB269C300FCD5B4 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73C1F21AB269C300FCD5B4 /* Person.swift */; };
 		EA8D4BBB1ABB8BC300D8714A /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D4BBA1ABB8BC300D8714A /* PersonTableViewCell.swift */; };
+		EA8D4BBD1ABB954B00D8714A /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8D4BBC1ABB954B00D8714A /* Department.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		EA73C1E81AB2698900FCD5B4 /* Person_ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person_ListTests.swift; sourceTree = "<group>"; };
 		EA73C1F21AB269C300FCD5B4 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		EA8D4BBA1ABB8BC300D8714A /* PersonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		EA8D4BBC1ABB954B00D8714A /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +85,13 @@
 			children = (
 				EA73C1D21AB2698900FCD5B4 /* AppDelegate.swift */,
 				EA73C1F21AB269C300FCD5B4 /* Person.swift */,
+				EA8D4BBA1ABB8BC300D8714A /* PersonTableViewCell.swift */,
 				EA73C1D41AB2698900FCD5B4 /* ViewController.swift */,
 				EA73C1D61AB2698900FCD5B4 /* Main.storyboard */,
 				EA73C1D91AB2698900FCD5B4 /* Images.xcassets */,
 				EA73C1DB1AB2698900FCD5B4 /* LaunchScreen.xib */,
 				EA73C1D01AB2698900FCD5B4 /* Supporting Files */,
-				EA8D4BBA1ABB8BC300D8714A /* PersonTableViewCell.swift */,
+				EA8D4BBC1ABB954B00D8714A /* Department.swift */,
 			);
 			path = "Person List";
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			files = (
 				EA73C1F31AB269C300FCD5B4 /* Person.swift in Sources */,
 				EA73C1D51AB2698900FCD5B4 /* ViewController.swift in Sources */,
+				EA8D4BBD1ABB954B00D8714A /* Department.swift in Sources */,
 				EA8D4BBB1ABB8BC300D8714A /* PersonTableViewCell.swift in Sources */,
 				EA73C1D31AB2698900FCD5B4 /* AppDelegate.swift in Sources */,
 			);

@@ -11,7 +11,13 @@ import UIKit
 class PersonTableViewCell: UITableViewCell {
 
     var addressView = UITextView()
-    var person: Person?
+    var person: Person? {
+        didSet {
+            self.textLabel?.text = self.person?.name
+            self.detailTextLabel?.text = self.person?.jobTitle
+            self.addressView.text = self.person?.address
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,7 +25,7 @@ class PersonTableViewCell: UITableViewCell {
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: UITableViewCellStyle.Subtitle, reuseIdentifier: reuseIdentifier)
 
         self.contentView.addSubview(self.addressView)
     }
@@ -37,12 +43,17 @@ class PersonTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-
-    }
-
-    func setPerson(person: Person?) {
-        self.person = person
-        self.textLabel?.text = person?.name
-        self.detailTextLabel?.text = person?.jobTitle
+        var bounds = self.contentView.bounds
+        bounds.origin.x = bounds.size.width / 2.0
+        bounds.size.width -= bounds.origin.x
+        self.addressView.frame = bounds
     }
 }
+
+
+
+
+
+
+
+
