@@ -47,14 +47,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let person = people[indexPath.row]
 
         // Step 2: Create and configure the row for the Person
-        var optCell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as UITableViewCell?
+        var optCell = tableView.dequeueReusableCellWithIdentifier("PersonCell") as PersonTableViewCell?
         if optCell == nil {
-            optCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "PersonCell")
+            optCell = PersonTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "PersonCell")
         }
 
         let cell = optCell!
-        cell.textLabel?.text = person.name
-        cell.detailTextLabel?.text = person.jobTitle
+        cell.setPerson(person)
         return cell
     }
 
